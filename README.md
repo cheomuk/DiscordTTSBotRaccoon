@@ -1,2 +1,9 @@
-# DiscordTTSBotRaccoon
-의뢰받은 디스코드 TTS 봇 Raccoon 의 레포지토리입니다.
+## 디스코드 TTS 봇 "Raccoon"
+
+![다운로드](https://github.com/user-attachments/assets/d0f28f10-28d5-4baf-8a12-88a458aaf1a5)
+
+### 제작 목적
+- 기존 TTS 봇들의 목소리가 마음에 들지 않아 바꿔달라는 요청에 제작하게 되었습니다.
+- 특정 캐릭터들의 목소리를 지원해달라고 하여 제작 중입니다.
+  - 현재 학습 중인 캐릭터 목소리
+    - 트릭컬 리바이브 <코미>
