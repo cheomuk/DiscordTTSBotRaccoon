@@ -161,4 +161,4 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 
-.scrap_voice.py
+TTS-0.13.1/
