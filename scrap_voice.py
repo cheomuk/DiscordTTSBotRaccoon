@@ -55,9 +55,9 @@ else:
     print(f"기존 파일 {output_wav}을(를) 사용합니다.")
 
 # 4. 추출된 오디오 파일에서 구간을 추출하여 새로운 WAV 파일로 저장
-start_time = "143.9"
-end_time = "147.8"
-output_segment = os.path.join(output_dir, "segment_47.wav")
+start_time = "2651.1"
+end_time = "2654.2"
+output_segment = os.path.join(output_dir, "segment_136.wav")
 
 # ffmpeg 명령어 실행
 subprocess.run([
