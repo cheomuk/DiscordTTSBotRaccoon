@@ -6,7 +6,7 @@ base_dir = os.path.abspath("./DiscordTTSBotRaccoon/TTS-0.13.1/DataSet")
 wav_directory = os.path.join(base_dir, "wavs")
 
 # 1. 유튜브 링크 및 출력 파일 설정
-youtube_link = "https://youtu.be/ej5ftw37-VU?si=ZezwM5NyOIvJ0owZ"
+youtube_link = "https://youtu.be/OqJ0MJNgr-M?si=BeSb4Qfe6HxilbC7"
 output_dir = wav_directory  # 파일을 저장할 디렉토리
 filename = "audio"  # 기본 파일명
 
@@ -55,8 +55,8 @@ else:
     print(f"기존 파일 {output_wav}을(를) 사용합니다.")
 
 # 4. 추출된 오디오 파일에서 구간을 추출하여 새로운 WAV 파일로 저장
-start_time = "2142.2"
-end_time = "2148.1"
+start_time = ""
+end_time = ""
 output_segment = os.path.join(output_dir, "segment_174.wav")
 
 # ffmpeg 명령어 실행
