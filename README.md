@@ -16,6 +16,7 @@
 
 - Coqui TTS 를 사용했고 ```metadata.csv``` 을 만들어 wav 파일과 문장, 발음을 저장했습니다.  
   - 발음 같은 경우 ```g2pk``` 라이브러리를 사용했고 위 ```metadata.py``` 파일에 적용되어 있습니다.
+  - wav 파일은 배경 음악 등을 제거하여 최대한 목소리만 담기게 준비하시는게 좋습니다. 
     
 - ```scrap_voice.py``` 에서 스크랩할 유튜브 링크를 입력한 후 아래 ```start_time, end_time``` 부분에 시간초를 적어서 실행합니다.
   - ```output_segment``` 부분의 맨 끝에 segment 라고 적힌 것이 있는데 이 부분에 원하는 이름으로 바꾸면 됩니다.
@@ -24,3 +25,4 @@
   - ```DiscordTTSBotRaccoon\TTS-0.13.1\TTS-0.13.1\recipes\ljspeech\vits_tts\train_vits.py``` 를 run 하면 학습이 시작됩니다.
   - ```VitsConfig``` 부분에서 ```epochs``` 수를 조절할 수 있으며, 검증 데이터 사이즈를 조절하는 ```eval_split_size``` 가 문제된다면 ```0.1 ~ 0.15``` 사이로 상황에 맞게 조절하시면 됩니다.
   - 이 이외의 에러가 발생시 필요한 라이브러리가 없거나 데이터 셋이 부족한 등의 이유가 대다수입니다.
+  

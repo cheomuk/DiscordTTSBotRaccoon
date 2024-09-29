@@ -6,13 +6,13 @@ g2p = G2p()
 
 # 상대 경로로 저장할 디렉토리 경로 설정
 base_dir = os.path.abspath("./DiscordTTSBotRaccoon/TTS-0.13.1/DataSet")
-wav_directory = os.path.join(base_dir, "wavs")
+wav_directory = os.path.abspath(os.path.join(base_dir, "wavs"))
 metadata_path = os.path.join(base_dir, "metadata.csv")
 
 # 구간 설정 및 텍스트 정의
 segments = [
     {"wav_file": os.path.join(wav_directory, "segment_175.wav"), "text": "촌장님."},
-    {"wav_file": os.path.join(wav_directory, "segment_176.wav"), "text": "코미는 사료면 충분해."},
+    {"wav_file": os.path.join(wav_directory, "segment_176.wav"), "text": "흐응... 코미는 사료면 충분해."},
     {"wav_file": os.path.join(wav_directory, "segment_177.wav"), "text": "그러니까 창고 개방! 사료 떨이 이벤트 같은 거나 더 해줘."},
     {"wav_file": os.path.join(wav_directory, "segment_178.wav"), "text": "아니야, 됐어."},
     {"wav_file": os.path.join(wav_directory, "segment_179.wav"), "text": "마녀랑 요정 여왕은 왜 싸운 거야?"},
@@ -22,7 +22,7 @@ segments = [
     {"wav_file": os.path.join(wav_directory, "segment_183.wav"), "text": "그래서 서로를 이해 못하는 거야."},
     {"wav_file": os.path.join(wav_directory, "segment_184.wav"), "text": "책에서 읽었어. 코미도 자세히는 몰라. 그냥 그렇대."},
     {"wav_file": os.path.join(wav_directory, "segment_185.wav"), "text": "아무튼, 촌장님은 다들 친하게 지냈으면 하는 거야?"},
-    {"wav_file": os.path.join(wav_directory, "segment_186.wav"), "text": "음... 코미한테 좋은 생각이 있어!"},
+    {"wav_file": os.path.join(wav_directory, "segment_186.wav"), "text": "흐음... 코미한테 좋은 생각이 있어!"},
     {"wav_file": os.path.join(wav_directory, "segment_187.wav"), "text": "다들 우리 마을에 초대하자!"},
     {"wav_file": os.path.join(wav_directory, "segment_188.wav"), "text": "초대해서 같이 놀 놀이터를 만들면 다들 재미있게 놀면서 친해질 거야!"},
     {"wav_file": os.path.join(wav_directory, "segment_189.wav"), "text": "아니, 아니. 음... 놀이터... 아주 큰 놀이터... 훌륭한 대화 수단..."},
@@ -34,13 +34,13 @@ segments = [
     {"wav_file": os.path.join(wav_directory, "segment_195.wav"), "text": "여기 근처까진 코미의 활동 영역이야."},
     {"wav_file": os.path.join(wav_directory, "segment_196.wav"), "text": "그 질문은 코미가 하는게 자연스러운 거야."},
     {"wav_file": os.path.join(wav_directory, "segment_197.wav"), "text": "여왕님 여기서 뭐해?"},
-    {"wav_file": os.path.join(wav_directory, "segment_198.wav"), "text": "여왕님 또 도망친 거지? 일하기 싫어서?"},
+    {"wav_file": os.path.join(wav_directory, "segment_198.wav"), "text": "으흠? 여왕님 또 도망친 거지? 일하기 싫어서?"},
     {"wav_file": os.path.join(wav_directory, "segment_199.wav"), "text": "괜찮아! 퍼리 비이치는 그냥 아무 생각 안하고 놀면 돼!"},
     {"wav_file": os.path.join(wav_directory, "segment_200.wav"), "text": "자자, 이렇게 코미가 부채질도 해주고 수영복도 대여해줄게! 그냥 바닥에 누워!"},
     {"wav_file": os.path.join(wav_directory, "segment_201.wav"), "text": "에이 부끄러하지 않아도 돼. 그냥 편하게 쉬어!"},
     {"wav_file": os.path.join(wav_directory, "segment_202.wav"), "text": "지금은 진흙이지만, 코미가 열심히 일해서 모래사장으로 바꿀 거야!"},
-    {"wav_file": os.path.join(wav_directory, "segment_203.wav"), "text": "코미가 만든 코미 주스도 먹어봐!"},
-    {"wav_file": os.path.join(wav_directory, "segment_204.wav"), "text": "여왕님."},
+    {"wav_file": os.path.join(wav_directory, "segment_203.wav"), "text": "자, 코미가 만든 코미 주스도 먹어봐!"},
+    {"wav_file": os.path.join(wav_directory, "segment_204.wav"), "text": "크흠... 여왕님."},
     {"wav_file": os.path.join(wav_directory, "segment_205.wav"), "text": "이제 돈 줘."},
     {"wav_file": os.path.join(wav_directory, "segment_206.wav"), "text": "코미가 최고의 서비스를 제공했으니까, 여왕님이 돈을 내야 해."},
     {"wav_file": os.path.join(wav_directory, "segment_207.wav"), "text": "빨리 줘. 여왕이니까 로열티 얹어서 내야 해."},
@@ -54,7 +54,7 @@ segments = [
     {"wav_file": os.path.join(wav_directory, "segment_215.wav"), "text": "코미는 진짜를 원해. 마법 같은 쉬운 힘으로는 진짜를 쟁취할 수 없어."},
     {"wav_file": os.path.join(wav_directory, "segment_216.wav"), "text": "김씨, 아직도 정신을 못 차렸어?"},
     {"wav_file": os.path.join(wav_directory, "segment_217.wav"), "text": "임무를 완수하지 못한다면, 평생 그 낙서를 얼굴에 달고 살아야 한다고?"},
-    {"wav_file": os.path.join(wav_directory, "segment_218.wav"), "text": "단체... 손님?!"},
+    {"wav_file": os.path.join(wav_directory, "segment_218.wav"), "text": "허?! 단체... 손님?!"},
     {"wav_file": os.path.join(wav_directory, "segment_219.wav"), "text": "마고!"},
     {"wav_file": os.path.join(wav_directory, "segment_220.wav"), "text": "어- 어서 오세요! 퍼리 비이치 리조토입니다앗!"},
     {"wav_file": os.path.join(wav_directory, "segment_221.wav"), "text": "응! 코미가 여기 주인이야! 촌장한테 듣고 왔구나!"},
@@ -77,11 +77,11 @@ segments = [
     {"wav_file": os.path.join(wav_directory, "segment_238.wav"), "text": "빵집 살면서 매달 이용료를 내는 요정처럼."},
     {"wav_file": os.path.join(wav_directory, "segment_239.wav"), "text": "그리고 퍼리 비이치는 사용할 때마다 돈을 내는 구조로 되어 있어."},
     {"wav_file": os.path.join(wav_directory, "segment_240.wav"), "text": "그러니까 마고는 밀린 이용료 다 합쳐서 내야 해."},
-    {"wav_file": os.path.join(wav_directory, "segment_241.wav"), "text": "마고랑... 마고 동물 친구들이랑... 자주 왔을 테니까... 다 합치면..."},
+    {"wav_file": os.path.join(wav_directory, "segment_241.wav"), "text": "흐으음... 마고랑... 마고 동물 친구들이랑... 자주 왔을 테니까... 다 합치면..."},
     {"wav_file": os.path.join(wav_directory, "segment_242.wav"), "text": "대충 이만 코미 코인이야."},
     {"wav_file": os.path.join(wav_directory, "segment_243.wav"), "text": "퍼리 비이치 쿠폰 이름이야!"},
     {"wav_file": os.path.join(wav_directory, "segment_244.wav"), "text": "코미도 잘 몰라."},
-    {"wav_file": os.path.join(wav_directory, "segment_245.wav"), "text": "새 손님을 데려왔네?"},
+    {"wav_file": os.path.join(wav_directory, "segment_245.wav"), "text": "흐응... 새 손님을 데려왔네?"},
     {"wav_file": os.path.join(wav_directory, "segment_246.wav"), "text": "그냥 빨리 내라는 거 내란 말이야!"},
     {"wav_file": os.path.join(wav_directory, "segment_247.wav"), "text": "잠깐! 마고, 너에게 제안을 하나 하지."},
     {"wav_file": os.path.join(wav_directory, "segment_248.wav"), "text": "코미 코인을 지불하는 대신, 내 일을 돕게 해줄게."},
@@ -109,9 +109,9 @@ segments = [
     {"wav_file": os.path.join(wav_directory, "segment_270.wav"), "text": "하지만 진짠데...? 코미의 논리는 완벽했으니까 말이야."},
     {"wav_file": os.path.join(wav_directory, "segment_271.wav"), "text": "하아~ 코미는 좋은 일 하는건데... 왜 다들 나랑 싸우려고 하는거야...?"},
     {"wav_file": os.path.join(wav_directory, "segment_272.wav"), "text": "자꾸 딴소리하면, 퍼리 비이치를 노애니멀존으로 만들어 버린다?"},
-    {"wav_file": os.path.join(wav_directory, "segment_273.wav"), "text": "아까부터 살짝 거슬렸는데... 마고 너... 말이 짧아?"},
+    {"wav_file": os.path.join(wav_directory, "segment_273.wav"), "text": "허어... 아까부터 살짝 거슬렸는데... 마고 너... 말이 짧아?"},
     {"wav_file": os.path.join(wav_directory, "segment_274.wav"), "text": "난 사장이고, 넌 노동자라구?"},
-    {"wav_file": os.path.join(wav_directory, "segment_275.wav"), "text": "퍼리 비이치의 비약적인 발전을 위해서는, 무식하게 센 힘이 더 필요해."},
+    {"wav_file": os.path.join(wav_directory, "segment_275.wav"), "text": "흐으음... 퍼리 비이치의 비약적인 발전을 위해서는, 무식하게 센 힘이 더 필요해."},
     {"wav_file": os.path.join(wav_directory, "segment_276.wav"), "text": "흐흐 마침 눈 앞에 지나가는군. 역시 코미는 운이 좋단 말이야."},
     {"wav_file": os.path.join(wav_directory, "segment_277.wav"), "text": "베니! 베니!"},
     {"wav_file": os.path.join(wav_directory, "segment_278.wav"), "text": "베니, 코미랑 놀이터 같이 만들지 않을래?"},
@@ -124,7 +124,7 @@ segments = [
     {"wav_file": os.path.join(wav_directory, "segment_285.wav"), "text": "베니, 언제까지 오른팔에만 머물러 있을 거야."},
     {"wav_file": os.path.join(wav_directory, "segment_286.wav"), "text": "더 높은 감투가 탐나지 않아?"},
     {"wav_file": os.path.join(wav_directory, "segment_287.wav"), "text": "생각해 봐 베니. 팔과 어깨, 어느 것이 더 위에 있지?"},
-    {"wav_file": os.path.join(wav_directory, "segment_288.wav"), "text": "지금이라도 깨달았으면 됐어. 모르는 건 부끄러운 게 아니니까."},
+    {"wav_file": os.path.join(wav_directory, "segment_288.wav"), "text": "후훗... 지금이라도 깨달았으면 됐어. 모르는 건 부끄러운 게 아니니까."},
     {"wav_file": os.path.join(wav_directory, "segment_289.wav"), "text": "응. 코미 옆에만 있어."},
     {"wav_file": os.path.join(wav_directory, "segment_290.wav"), "text": "베니, 지금 협상의 기술을 사용하고 있는 거야?"},
     {"wav_file": os.path.join(wav_directory, "segment_291.wav"), "text": "좋아. 일당도 줄게. 하루 8시간 일하고 일당은 오백코인이야."},
@@ -231,17 +231,17 @@ segments = [
     {"wav_file": os.path.join(wav_directory, "segment_392.wav"), "text": "후후, 고급 농담이었어."},
     {"wav_file": os.path.join(wav_directory, "segment_393.wav"), "text": "따지고 보면, 지금 코미가 담겨진 이 호수의 물 전체가 코미 주스거든."},
     {"wav_file": os.path.join(wav_directory, "segment_394.wav"), "text": "그러니까, 오늘은 아무 생각 없이 놀자. 베니."},
-    {"wav_file": os.path.join(wav_directory, "segment_395.wav"), "text": "기꺼이 상대해 주지, 김씨!"},
+    {"wav_file": os.path.join(wav_directory, "segment_395.wav"), "text": "기꺼이 상대해 주지, 김씨!"}
     # 필요한 만큼 구간 추가 가능
 ]
 
 # Coqui TTS 학습을 위한 metadata.csv 파일에 추가
 with open(metadata_path, "a", encoding="utf-8") as metadata_file:
     for segment in segments:
-        segment_wav = segment["wav_file"]
+        segment_wav = os.path.abspath(segment["wav_file"])
         
         # 파일 이름에서 확장자 제거
-        segment_name = os.path.splitext(os.path.basename(segment_wav))[0]
+        segment_name = os.path.splitext(segment_wav)[0]
         
         text = segment["text"]
         phoneme_text = g2p(text)  # G2P 변환
