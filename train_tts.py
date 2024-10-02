@@ -59,12 +59,19 @@ def collate_fn(batch):
     return list(texts), torch.tensor(padded_mels)
 
 # 파인튜닝 설정
-def fine_tune_model():
+def fine_tune_model(continue_training=True):   # 학습을 이어 할 것인지 새로할 것인지 설정
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-    # 모델과 토크나이저 로드
-    model = VitsModel.from_pretrained("facebook/mms-tts-kor")
-    tokenizer = AutoTokenizer.from_pretrained("facebook/mms-tts-kor")
+    # 학습을 처음부터 시작할지 이어서 할지 결정
+    if continue_training and os.path.exists("models/fine_tuned_model/pytorch_model.bin"):
+        logging.info("이전 학습된 모델을 로드합니다.")
+        model = VitsModel.from_pretrained("models/fine_tuned_model/")
+        tokenizer = AutoTokenizer.from_pretrained("models/fine_tuned_model/")
+    else:
+        logging.info("새 모델을 로드합니다.")
+        model = VitsModel.from_pretrained("facebook/mms-tts-kor")
+        tokenizer = AutoTokenizer.from_pretrained("facebook/mms-tts-kor")
+
     model.to(device)
 
     # 데이터셋 및 DataLoader 준비
@@ -72,14 +79,14 @@ def fine_tune_model():
     dataloader = DataLoader(dataset, batch_size=4, shuffle=True, collate_fn=collate_fn)
 
     # Optimizer 설정
-    optimizer = torch.optim.Adam(model.parameters(), lr=1e-4)
+    optimizer = torch.optim.Adam(model.parameters(), lr=1e-5)
 
     # epoch 횟수 설정
-    epochs = 30
+    epochs = 1
 
     # 학습 루프
     model.train()
-    print("학습 시작")
+    logging.info("학습 시작")
     
     for epoch in range(epochs):
         total_loss = 0
@@ -122,7 +129,8 @@ def fine_tune_model():
     logging.info("모델과 토크나이저가 성공적으로 저장되었습니다.")
 
 if __name__ == "__main__":
-    fine_tune_model()
+    fine_tune_model(continue_training=True)  # True로 설정하면 이전 모델 이어서 학습
+
 
 
 
