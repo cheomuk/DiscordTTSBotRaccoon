@@ -167,3 +167,5 @@ Tacotron2-Wavenet-Korean-TTS/
 data/
 uroman/
 models/
+shutdown.py
+hifi_gan/

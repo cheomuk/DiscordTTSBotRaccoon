@@ -75,7 +75,7 @@ def fine_tune_model(continue_training=True):   # 학습을 이어 할 것인지 
     model.to(device)
 
     # 데이터셋 및 DataLoader 준비
-    dataset = TTSDataset("data/metadata.csv", "data/wavs/")
+    dataset = TTSDataset("data/metadata_wavs.csv", "data/wavs/")
     dataloader = DataLoader(dataset, batch_size=4, shuffle=True, collate_fn=collate_fn)
 
     # Optimizer 설정
@@ -83,6 +83,9 @@ def fine_tune_model(continue_training=True):   # 학습을 이어 할 것인지 
 
     # epoch 횟수 설정
     epochs = 1
+    
+    # 학습 후 PC 종료 여부
+    turnoff_switch = True
 
     # 학습 루프
     model.train()
@@ -127,6 +130,10 @@ def fine_tune_model(continue_training=True):   # 학습을 이어 할 것인지 
     model.save_pretrained("models/fine_tuned_model/")
     tokenizer.save_pretrained("models/fine_tuned_model/")
     logging.info("모델과 토크나이저가 성공적으로 저장되었습니다.")
+    
+    # 학습 후 PC 종료
+    if turnoff_switch:
+        os.system("shutdown /s /f /t 0")
 
 if __name__ == "__main__":
     fine_tune_model(continue_training=True)  # True로 설정하면 이전 모델 이어서 학습
