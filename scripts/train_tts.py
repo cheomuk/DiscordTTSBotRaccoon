@@ -59,21 +59,39 @@ def train_model(model, tokenizer, dataset_path, wav_dir, epochs=20, lr=1e-4, dev
     return model
 
 
-
 if __name__ == "__main__":
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    # CUDA 사용 가능 여부 확인
+    if torch.cuda.is_available():
+        device = torch.device("cuda")
+    else:
+        raise RuntimeError("CUDA is not available. Please make sure you have a GPU available with CUDA enabled.")
 
-    # Load pretrained model and tokenizer
-    model = VitsModel.from_pretrained("facebook/mms-tts-kor").to(device)
-    tokenizer = AutoTokenizer.from_pretrained("facebook/mms-tts-kor")
+    # 모델 디렉토리 경로
+    fine_tuned_model_dir = "../models/fine_tuned_model/"
 
-    # First stage: Fine-tuning on KSS dataset for pronunciation and intonation
-    logging.info("Starting fine-tuning on KSS dataset...")
-    model = train_model(model, tokenizer, '../data/metadata_kss.csv', '../data/kss', epochs=10, lr=1e-4, device=device)
-
-    # Save intermediate model
-    model.save_pretrained("../models/fine_tuned_model/")
-    tokenizer.save_pretrained("../models/fine_tuned_model/")
+    # 모델 디렉토리가 존재하는지 확인
+    if os.path.exists(fine_tuned_model_dir):
+        # 학습된 모델 불러오기
+        logging.info("Pre-trained model found. Loading model for further training...")
+        model = VitsModel.from_pretrained(fine_tuned_model_dir).to(device)
+        tokenizer = AutoTokenizer.from_pretrained(fine_tuned_model_dir)
+        
+        # 추가 학습을 위한 KSS 데이터셋으로 학습
+        logging.info("Further fine-tuning on KSS dataset...")
+        model = train_model(model, tokenizer, '../data/metadata_kss.csv', '../data/kss', epochs=20, lr=1e-4, device=device)
+    else:
+        # 모델이 없을 경우 새로 학습 시작
+        logging.info("No pre-trained model found. Starting training from scratch...")
+        model = VitsModel.from_pretrained("facebook/mms-tts-kor").to(device)
+        tokenizer = AutoTokenizer.from_pretrained("facebook/mms-tts-kor")
+        
+        # KSS 데이터셋으로 초기 학습
+        model = train_model(model, tokenizer, '../data/metadata_kss.csv', '../data/kss', epochs=20, lr=1e-4, device=device)
+        
+        # 중간 모델 저장
+        os.makedirs(fine_tuned_model_dir, exist_ok=True)
+        model.save_pretrained(fine_tuned_model_dir)
+        tokenizer.save_pretrained(fine_tuned_model_dir)
 
     # Second stage: Fine-tuning on character dataset for tone
     logging.info("Starting fine-tuning on character dataset...")
