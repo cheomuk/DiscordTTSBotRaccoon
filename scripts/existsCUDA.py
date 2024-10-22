@@ -13,4 +13,5 @@ print("Num GPUs Available: ", len(tf.config.experimental.list_physical_devices('
 # 1. CUDA : 최신 버전, Cudnn : 최신 버전, torch : 12.5, toolkit : 최신 버전 -> 실패
 # 2. CUDA : 10.2, Cudnn : 8.6.0, torch : 1.12.1, toolkit : 10.2 -> 실패
 # 3. CUDA : 11.8, Cudnn : 8.9.0 ~ 8.9.7, torch : 2.4.0, toolkit : 11.8 -> 실패
-# 4. CUDA : 11.2, Cudnn : 8.1.0, torch : 1.10.1, toolkit : 11.2 -> 시도 중
+# 4. CUDA : 11.2, Cudnn : 8.1.0, torch : 1.10.1, toolkit : 11.2 -> 실패
+# 5. CUDA : 12.1, Cuddn : 8.9.0 ~ 8.9.7, torch : 2.4.1, toolkit : 12.1 -> 시도 중
